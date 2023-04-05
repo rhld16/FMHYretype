@@ -25,8 +25,20 @@ jobs:
       - run: mv FMHYedit ../FMHYedit
 
       - uses: retypeapp/action-build@latest
+        id: build
         with:
           config: ../FMHYedit
+      
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+
+      - name: Run Script
+        shell: bash
+        env:
+          RETYPE_PATH: ${{ steps.build.outputs.retype-output-path }}
+        run: cd '${RETYPE_PATH}' && echo "Y" | python replace-links-to-fmhy-in-files-in-current-dir.py
 
       - uses: retypeapp/action-github-pages@latest
         with:
