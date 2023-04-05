@@ -20,11 +20,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: nbats/FMHYedit
-          path: FMHYedit
+          path: ../FMHYedit
 
       - uses: retypeapp/action-build@latest
         with:
-          config: FMHYedit
+          config: ../FMHYedit
 
       - uses: retypeapp/action-github-pages@latest
         with:
