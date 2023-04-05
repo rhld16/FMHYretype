@@ -18,7 +18,9 @@ def do_some_individual_replaces(text):
     text = re.sub('.pages.dev/base64/#do-k-ument', '.pages.dev/base64/#do_k_ument', text)
 
     #Base64-decoder script link
-    text = re.sub('\*\* site or extension\.\n', '** site or extension\.\nAlternatively, install this [userscript](https://rentry.co/wc7s2/raw)\n', text, flags=re.MULTILINE)
+    toReplace = "Use any \*\*\[Base64 Decoding\]\(https://freemediaheckyeah\.pages\.dev/storage/#encode--decode-urls\)\*\* site or extension\."
+    replacement = "!!!\nUse any **[Base64 Decoding](https://freemediaheckyeah.pages.dev/storage/#encode--decode-urls)** site or extension.\nAlternatively, install this [userscript](https://rentry.co/wc7s2/raw)\n!!!"
+    text = re.sub(toReplace, replacement, text, flags=re.MULTILINE)
     text = re.sub('\n\nhttps://', '\n\n* https://', text) #for the list of backups
 
     #For beginners piracy guide page
@@ -171,6 +173,7 @@ argaseg ae this is legit test between stuff to remove1
 **[movie-web](https://movie-web.app/) / [FMovies](https://fmovies.name/) / [Soap2Day](https://soapgate.org/)** - Fast streaming
 **[Zoro](https://zoro.to/) / [9Anime](https://www.9anime.to/)** - Fast  anime streaming
 
+Use any **[Base64 Decoding](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage#wiki_encode_.2F_decode_urls)** site or extension.
 
 """
 def just_test_the_replacer_function():
