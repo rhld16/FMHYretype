@@ -2,6 +2,24 @@ import re
 import os
 import sys
 
+def do_some_individual_replaces(text):
+    #special cases of link not replaced correctly
+    text = re.sub('.pages.dev/storage/#encode--decode_urls', '.pages.dev/storage/#encode--decode-urls', text)
+    text = re.sub('.pages.dev/base64/#do-k-ument', '.pages.dev/base64/#do_k_ument', text)
+
+    #Base64-decoder script link
+    text = re.sub('\*\* site or extension\.\n', '** site or extension\.\nAlternatively, install this \[userscript\]\(https://rentry.co/wc7s2/raw\)\n', text, flags=re.MULTILINE)
+
+    #For beginners piracy guide page
+    text = re.sub('\[TOC\]\n', '', text, flags=re.MULTILINE)
+    text = re.sub('## -> Beginners Guide to Piracy<-\n', '', text, flags=re.MULTILINE)
+    text = re.sub(r"!!!note\s(.+?)\n", r"!!!\n\1\n!!!\n", text, flags=re.MULTILINE)
+    text = re.sub(r"!!!warning\s(.+?)\n", r"!!!warning\n\1\n!!!\n", text, flags=re.MULTILINE)
+    text = re.sub('\*\*\[\^ Back to Top\]\(https://rentry.org/Piracy-BG\)\*\*', '', text, flags=re.MULTILINE)
+    text = re.sub("!!!\n!!!\n", "!!!\n", text, flags=re.MULTILINE)
+
+    return text
+
 def change_some_general_formatting(text):
     text = re.sub('\*\*\*\n\n', '', text, flags=re.MULTILINE)
     text = re.sub('\*\*\*\n', '', text, flags=re.MULTILINE)
@@ -10,7 +28,9 @@ def change_some_general_formatting(text):
     text = re.sub('## ▷', '###', text)
     text = re.sub('####', '###', text)
 
+    text = re.sub(r'^\*\*Note\*\* - (.+)$', r'!!!\n\1\n!!!', text, flags=re.MULTILINE)
     text = re.sub(r'^\* \*\*Note\*\* - (.+)$', r'!!!\n\1\n!!!', text, flags=re.MULTILINE)
+    text = re.sub(r'^Note - (.+)$', r'!!!\n\1\n!!!', text, flags=re.MULTILINE)
     text = re.sub(r'^\*\*Warning\*\* - (.+)$', r'!!!warning\n\1\n!!!', text, flags=re.MULTILINE)
 
     return text
@@ -70,6 +90,7 @@ def replace_urls_in_links_to_FMHY_wiki(text):
     text = replace_domain_and_page(text)
     text = reformat_subsections(text)
     text = change_some_general_formatting(text)
+    text = do_some_individual_replaces(text)
     return text
 
 def apply_replace_to_all_md_files_in_current_dir():
