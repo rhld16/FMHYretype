@@ -1,0 +1,31 @@
+name: Update FMHY Retype
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  update:
+    name: Update FMHY Retype
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Pull FMHYedit
+        uses: actions/checkout@v2
+        with:
+          repository: nbats/FMHYedit
+          path: FMHYedit
+
+      - uses: retypeapp/action-build@latest
+        with:
+          path: FMHYedit
+
+      - uses: retypeapp/action-github-pages@latest
+        with:
+          update-branch: true
