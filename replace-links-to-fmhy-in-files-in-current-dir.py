@@ -159,5 +159,6 @@ proceed = input("Are you sure you want to proceed? [Y/N]")
 if proceed.upper() == "Y":
     apply_replace_to_all_md_files_in_current_dir()
     print("Script execution completed.")
+    sys.exit(0)
 else:
     print("Script execution cancelled.")
