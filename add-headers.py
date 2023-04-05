@@ -25,7 +25,7 @@ headersData = {
 
 def getHeaderForPage(pageFilename):
     data = headersData[pageFilename]
-    header = "---\n" + "icon: " + data[0] + "\n" + "order: " + data[1] + "\n" + "---\n" + data[2] + "\n"  + data[3] + "\n\n"
+    header = '---\n' + 'icon: ' + '"' + data[0] + '"' + '\n' + 'order: ' + data[1] + '\n' + '---\n' + data[2] + '\n'  + data[3] + '\n\n'
     return header
 
 def apply_to_all_md_files_in_current_dir():
