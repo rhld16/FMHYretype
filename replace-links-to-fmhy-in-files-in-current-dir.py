@@ -156,10 +156,5 @@ just_test_the_replacer_function()
 # MAIN EXECUTION
 print("---MAIN SCRIPT---")
 print_info_for_confirmation()
-proceed = input("Are you sure you want to proceed? [Y/N]")
-if proceed.upper() == "Y":
-    apply_replace_to_all_md_files_in_current_dir()
-    print("Script execution completed.")
-    sys.exit(0)
-else:
-    print("Script execution cancelled.")
+apply_replace_to_all_md_files_in_current_dir()
+print("---END OF MAIN SCRIPT---")

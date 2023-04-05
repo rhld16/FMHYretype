@@ -37,7 +37,7 @@ jobs:
         shell: bash
         run: |
           cd ../FMHYedit
-          echo "Y" | python $GITHUB_WORKSPACE/replace-links-to-fmhy-in-files-in-current-dir.py
+          python $GITHUB_WORKSPACE/replace-links-to-fmhy-in-files-in-current-dir.py
           python $GITHUB_WORKSPACE/replace-links-to-fmhy-in-files-in-current-dir.py
 
       - uses: retypeapp/action-build@latest
