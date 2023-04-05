@@ -17,6 +17,7 @@ def do_some_individual_replaces(text):
     text = re.sub(r"!!!warning\s(.+?)\n", r"!!!warning\n\1\n!!!\n", text, flags=re.MULTILINE)
     text = re.sub('\*\*\[\^ Back to Top\]\(https://rentry.org/Piracy-BG\)\*\*', '', text, flags=re.MULTILINE)
     text = re.sub("!!!\n!!!\n", "!!!\n", text, flags=re.MULTILINE)
+    text = re.sub("\*\*\[", "\* \*\*\[", text)
 
     return text
 
