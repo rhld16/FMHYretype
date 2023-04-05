@@ -38,7 +38,7 @@ jobs:
         shell: bash
         env:
           RETYPE_PATH: ${{ steps.build.outputs.retype-output-path }}
-        run: cd '${RETYPE_PATH}' && echo "Y" | python replace-links-to-fmhy-in-files-in-current-dir.py
+        run: cd '$RETYPE_PATH' && echo "Y" | python replace-links-to-fmhy-in-files-in-current-dir.py
 
       - uses: retypeapp/action-github-pages@latest
         with:
