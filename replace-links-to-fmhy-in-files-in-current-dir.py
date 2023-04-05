@@ -10,7 +10,8 @@ def replaces_for_beginners_guide(text):
     text = re.sub(toReplace, replacement, text)
     text = re.sub(r"!!!note\s(.+?)\n", r"!!!\n\1\n!!!\n", text, flags=re.MULTILINE)
     text = re.sub(r"!!!warning\s(.+?)\n", r"!!!warning\n\1\n!!!\n", text, flags=re.MULTILINE)
-    text = re.sub('\*\*\[\^ Back to Top\]\(https://rentry.org/Piracy-BG\)\*\*', '', text, flags=re.MULTILINE)
+    text = re.sub('Source: \*\*\[/r/FREEMEDIAHECKYEAH\]\(https://www\.reddit\.com/r/FREEMEDIAHECKYEAH/wiki/index\)\*\*', '', text)
+    text = re.sub('\*\*\[\^ Back to Top\]\(https://rentry.org/Piracy-BG\)\*\*', '', text)
     text = re.sub("!!!\n!!!\n", "!!!\n", text, flags=re.MULTILINE)
     text = re.sub("\n\*\*\[", "\n* **[", text, flags=re.MULTILINE)
     return text
