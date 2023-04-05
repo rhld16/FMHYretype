@@ -25,7 +25,9 @@ jobs:
       - uses: retypeapp/action-build@latest
         with:
           path: FMHYedit
+          output: FMHYedit
 
       - uses: retypeapp/action-github-pages@latest
         with:
           update-branch: true
+          path: FMHYedit
