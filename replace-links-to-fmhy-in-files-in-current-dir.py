@@ -5,6 +5,9 @@ import sys
 def replaces_for_beginners_guide(text):
     text = re.sub('\[TOC\]\n', '', text, flags=re.MULTILINE)
     text = re.sub('## -> Beginners Guide to Piracy<-\n', '', text, flags=re.MULTILINE)
+    toReplace = "-> If you have any questions feel free to join us in [Divolt](https://redd.it/uto5vw) ♡ <-"
+    replacement = "If you have any questions feel free to join us in [Divolt](https://redd.it/uto5vw) ♡"
+    text = re.sub(toReplace, replacement, text)
     text = re.sub(r"!!!note\s(.+?)\n", r"!!!\n\1\n!!!\n", text, flags=re.MULTILINE)
     text = re.sub(r"!!!warning\s(.+?)\n", r"!!!warning\n\1\n!!!\n", text, flags=re.MULTILINE)
     text = re.sub('\*\*\[\^ Back to Top\]\(https://rentry.org/Piracy-BG\)\*\*', '', text, flags=re.MULTILINE)
@@ -175,6 +178,7 @@ argaseg ae this is legit test between stuff to remove1
 
 Use any **[Base64 Decoding](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage#wiki_encode_.2F_decode_urls)** site or extension.
 
+-> If you have any questions feel free to join us in [Divolt](https://redd.it/uto5vw) ♡ <-
 """
 def just_test_the_replacer_function():
     print("---TEST---")
