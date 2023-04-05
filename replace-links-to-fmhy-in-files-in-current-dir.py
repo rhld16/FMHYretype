@@ -9,7 +9,7 @@ def replaces_for_beginners_guide(text):
     text = re.sub(r"!!!warning\s(.+?)\n", r"!!!warning\n\1\n!!!\n", text, flags=re.MULTILINE)
     text = re.sub('\*\*\[\^ Back to Top\]\(https://rentry.org/Piracy-BG\)\*\*', '', text, flags=re.MULTILINE)
     text = re.sub("!!!\n!!!\n", "!!!\n", text, flags=re.MULTILINE)
-    text = re.sub("\n\*\*\[", "\n\* \*\*\[", text, flags=re.MULTILINE)
+    text = re.sub("\n\*\*\[", "\n* **[", text, flags=re.MULTILINE)
     return text
 
 def do_some_individual_replaces(text):
@@ -166,6 +166,10 @@ argaseg ae this is legit test between stuff to remove1
 * **Note** - Some aggregators still include TPB, so it's best to avoid using them for software and games.
 
 **Warning** - Misuse of Chat Archivers, Deleters, Mods & 3rd Party Clients is against Discords TOS, so use them at your own risk.
+
+**[movie-web](https://movie-web.app/) / [FMovies](https://fmovies.name/) / [Soap2Day](https://soapgate.org/)** - Fast streaming
+**[Zoro](https://zoro.to/) / [9Anime](https://www.9anime.to/)** - Fast  anime streaming
+
 
 """
 def just_test_the_replacer_function():
