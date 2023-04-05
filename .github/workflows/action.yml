@@ -22,7 +22,8 @@ jobs:
           repository: nbats/FMHYedit
           path: FMHYedit
           
-      - run: |
+      - name: Move Files
+        run: |
           mv FMHYedit ../FMHYedit
           cp README.md ../FMHYedit
           cp retype.yml ../FMHYedit
@@ -34,14 +35,15 @@ jobs:
         with:
           python-version: '3.10' 
 
-      - name: Run Script
+      - name: Prepare Files
         shell: bash
         run: |
           cd ../FMHYedit
           python $GITHUB_WORKSPACE/replace-links-to-fmhy-in-files-in-current-dir.py
-          python $GITHUB_WORKSPACE/replace-links-to-fmhy-in-files-in-current-dir.py
+          python $GITHUB_WORKSPACE/add-headers.py
 
-      - uses: retypeapp/action-build@latest
+      - name: Build Retype
+        uses: retypeapp/action-build@latest
         id: build
         with:
           config: ../FMHYedit
