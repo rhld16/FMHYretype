@@ -24,10 +24,8 @@ jobs:
 
       - uses: retypeapp/action-build@latest
         with:
-          path: FMHYedit
-          output: FMHYedit
+          config: FMHYedit
 
       - uses: retypeapp/action-github-pages@latest
         with:
           update-branch: true
-          directory: FMHYedit
