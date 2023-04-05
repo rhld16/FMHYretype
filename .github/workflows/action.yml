@@ -23,9 +23,10 @@ jobs:
           path: FMHYedit
           
       - run: |
-        mv FMHYedit ../FMHYedit
-        cp README.md ../FMHYedit
-        cp retype.yml ../FMHYedit
+          mv FMHYedit ../FMHYedit
+          cp README.md ../FMHYedit
+          cp retype.yml ../FMHYedit
+        shell: bash
       
       - name: Install Python
         uses: actions/setup-python@v4
