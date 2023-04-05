@@ -18,7 +18,7 @@ def do_some_individual_replaces(text):
     text = re.sub('.pages.dev/base64/#do-k-ument', '.pages.dev/base64/#do_k_ument', text)
 
     #Base64-decoder script link
-    text = re.sub('\*\* site or extension\.\n', '** site or extension\.\nAlternatively, install this \[userscript\]\(https://rentry.co/wc7s2/raw)\n', text, flags=re.MULTILINE)
+    text = re.sub('\*\* site or extension\.\n', '** site or extension\.\nAlternatively, install this [userscript](https://rentry.co/wc7s2/raw)\n', text, flags=re.MULTILINE)
 
     #For beginners piracy guide page
     text = replaces_for_beginners_guide(text)
