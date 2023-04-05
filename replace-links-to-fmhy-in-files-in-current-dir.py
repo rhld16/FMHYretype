@@ -1,5 +1,6 @@
 import re
 import os
+import sys
 
 def change_some_general_formatting(text):
     text = re.sub('\*\*\*\n\n', '', text, flags=re.MULTILINE)
