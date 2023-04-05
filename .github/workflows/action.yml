@@ -36,7 +36,7 @@ jobs:
 
       - name: Run Script
         shell: bash
-        run: cd $RETYPE_OUTPUT_PATH && echo "Y" | python replace-links-to-fmhy-in-files-in-current-dir.py
+        run: cd $RETYPE_OUTPUT_PATH && echo "Y" | python $GITHUB_WORKSPACE/replace-links-to-fmhy-in-files-in-current-dir.py
 
       - uses: retypeapp/action-github-pages@latest
         with:
