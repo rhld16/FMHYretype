@@ -26,6 +26,7 @@ jobs:
           mv FMHYedit ../FMHYedit
           cp README.md ../FMHYedit
           cp retype.yml ../FMHYedit
+          cp -r static/ ../FMHYedit
         shell: bash
       
       - name: Install Python
