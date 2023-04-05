@@ -18,8 +18,8 @@ def do_some_individual_replaces(text):
     text = re.sub('.pages.dev/base64/#do-k-ument', '.pages.dev/base64/#do_k_ument', text)
 
     #Base64-decoder script link
-    toReplace = "Use any \*\*\[Base64 Decoding\]\(https://freemediaheckyeah\.pages\.dev/storage/#encode--decode-urls\)\*\* site or extension\."
-    replacement = "!!!\nUse any **[Base64 Decoding](https://freemediaheckyeah.pages.dev/storage/#encode--decode-urls)** site or extension.\nAlternatively, install this [userscript](https://rentry.co/wc7s2/raw)\n!!!"
+    toReplace = "\nUse any \*\*\[Base64 Decoding\]\(https://freemediaheckyeah\.pages\.dev/storage/#encode--decode-urls\)\*\* site or extension\.\n"
+    replacement = "\n!!!\nUse any **[Base64 Decoding](https://freemediaheckyeah.pages.dev/storage/#encode--decode-urls)** site or extension.\nAlternatively, install this [userscript](https://rentry.co/wc7s2/raw)\n!!!\n"
     text = re.sub(toReplace, replacement, text, flags=re.MULTILINE)
     text = re.sub('\n\nhttps://', '\n\n* https://', text) #for the list of backups
 
