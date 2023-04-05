@@ -22,7 +22,10 @@ jobs:
           repository: nbats/FMHYedit
           path: FMHYedit
           
-      - run: mv FMHYedit ../FMHYedit
+      - run: |
+        mv FMHYedit ../FMHYedit
+        cp README.md ../FMHYedit
+        cp retype.yml ../FMHYedit
       
       - name: Install Python
         uses: actions/setup-python@v4
@@ -31,7 +34,10 @@ jobs:
 
       - name: Run Script
         shell: bash
-        run: cd ../FMHYedit && echo "Y" | python $GITHUB_WORKSPACE/replace-links-to-fmhy-in-files-in-current-dir.py
+        run: |
+          cd ../FMHYedit
+          echo "Y" | python $GITHUB_WORKSPACE/replace-links-to-fmhy-in-files-in-current-dir.py
+          python $GITHUB_WORKSPACE/replace-links-to-fmhy-in-files-in-current-dir.py
 
       - uses: retypeapp/action-build@latest
         id: build
